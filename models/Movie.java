@@ -60,6 +60,9 @@ public class Movie {
         this.name = name;
     }
     public void setFormat(String format) {
+        if (!(format.equals("DVD") || format.equals("Blue-Ray"))){
+            throw new IllegalArgumentException("invalid format");
+        }
         this.format = format;
         setSellingPrice(format.equals("Blue-Ray") ? 4.25 : 2.25);
         setRentalPrice(format.equals("Blue-Ray") ? 1.99 : 0.99);
