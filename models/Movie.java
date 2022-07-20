@@ -18,6 +18,12 @@ public class Movie {
 
     }
     public Movie (Movie source){
+        if(name == null || name.isBlank()){
+            throw new IllegalArgumentException("Name Must contain value");
+        }
+        if (!(format.equals("DVD") || format.equals("Blue-Ray"))){
+            throw new IllegalArgumentException("Not valid format");
+        }
         this.name = source.name;
         this.format = source.format;
         this.rating = source.rating;
