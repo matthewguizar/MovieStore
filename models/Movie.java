@@ -24,6 +24,9 @@ public class Movie {
         if (!(format.equals("DVD") || format.equals("Blue-Ray"))){
             throw new IllegalArgumentException("Not valid format");
         }
+        if (rating < 0 || rating > 10 ){
+            throw new IllegalArgumentException("invalid rating");
+        }
         this.name = source.name;
         this.format = source.format;
         this.rating = source.rating;
