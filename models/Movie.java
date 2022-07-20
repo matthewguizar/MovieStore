@@ -54,6 +54,9 @@ public class Movie {
         return isAvailable;
     }
     public void setName(String name) {
+        if (name == null || name.isBlank()){
+            throw new IllegalArgumentException("name invalid");
+        }
         this.name = name;
     }
     public void setFormat(String format) {
