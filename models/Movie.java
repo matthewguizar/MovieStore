@@ -68,6 +68,9 @@ public class Movie {
         setRentalPrice(format.equals("Blue-Ray") ? 1.99 : 0.99);
     }
     public void setRating(double rating) {
+        if (rating < 0 || rating > 10 ){
+            throw new IllegalArgumentException("invalid rating");
+        }
         this.rating = rating;
     }
     public void setRentalPrice(double rentalPrice) {
