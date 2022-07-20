@@ -66,11 +66,11 @@ public class Movie {
     }
 
     public String toString(){
-        return "\t Name: " + name + "\n" + 
-        "\t Format: " + format + "\n" + 
-        "\t Rating: " + rating + "\n" + 
-        "\t Selling Price: " + sellingPrice + "\n" +
-        "\t Rental Price : " + rentalPrice + "\n" + 
-        "\t Available: " + isAvailable + "\n"; 
+        return "\t Name: " + this.name + "\n" + 
+        "\t Format: " + this.format + "\n" + 
+        "\t Rating: " + this.rating + "\n" + 
+        "\t Selling Price: " + this.sellingPrice + "\n" +
+        "\t Rental Price : " + this.rentalPrice + "\n" + 
+        "\t Available: " + (this.isAvailable ? "in stock" : "unavailable") + "\n"; 
     }
 }
