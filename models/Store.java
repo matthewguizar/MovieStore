@@ -22,6 +22,8 @@ public class Store {
         this.movies.add(new Movie(movie));
     }
 
+    //loops through movies array list and then action decides what is being performed
+    //instead of using three functions to find movie in list, it's done once
     public void action(String name, String action){
         for (int i = 0; i < this.movies.size(); i++) {
             if (this.movies.get(i).getName().equals(name)){
