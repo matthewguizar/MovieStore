@@ -3,17 +3,27 @@ package models;
 public class Movie {
     private String name;
     private String format;
-    private byte rating;
+    private double rating;
     private double sellingPrice;
     private double rentalPrice;
     private boolean isAvailable;
 
-    public Movie (String name, String format, byte rating){
+    public Movie (String name, String format, double rating){
         this.name = name;
         this.format = format;
         this.rating = rating;
+        this.sellingPrice = format.equals("Blue-Ray") ? 4.25 : 2.25;
+        this.rentalPrice = format.equals("DVD") ? 0.99 : 1.99;
         this.isAvailable = true;
 
+    }
+    public Movie (Movie source){
+        this.name = source.name;
+        this.format = source.format;
+        this.rating = source.rating;
+        this.sellingPrice = source.sellingPrice;
+        this.rentalPrice = source.rentalPrice;
+        this.isAvailable = source.isAvailable;
     }
 
     public String getName() {
@@ -22,7 +32,7 @@ public class Movie {
     public String getFormat() {
         return format;
     }
-    public byte getRating() {
+    public double getRating() {
         return rating;
     }
     public double getRentalPrice() {
@@ -39,8 +49,10 @@ public class Movie {
     }
     public void setFormat(String format) {
         this.format = format;
+        setSellingPrice(format.equals("Blue-Ray") ? 4.25 : 2.25);
+        setRentalPrice(format.equals("Blue-Ray") ? 1.99 : 0.99);
     }
-    public void setRating(byte rating) {
+    public void setRating(double rating) {
         this.rating = rating;
     }
     public void setRentalPrice(double rentalPrice) {
@@ -51,5 +63,14 @@ public class Movie {
     }
     public void setAvailable(boolean isAvailable) {
         this.isAvailable = isAvailable;
+    }
+
+    public String toString(){
+        return "\t Name: " + name + "\n" + 
+        "\t Format: " + format + "\n" + 
+        "\t Rating: " + rating + "\n" + 
+        "\t Selling Price: " + sellingPrice + "\n" +
+        "\t Rental Price : " + rentalPrice + "\n" + 
+        "\t Available: " + isAvailable + "\n"; 
     }
 }

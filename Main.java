@@ -1,6 +1,9 @@
+import models.Movie;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("\n********************JAVA VIDEO STORE********************\n");
+        Movie movie = new Movie("Shawshank", "Blue-Ray", 10);
 
     }
 
