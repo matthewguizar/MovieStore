@@ -35,7 +35,7 @@ public class Main {
 
             System.out.print("Enter the name of the movie: ");
             String name = scan.nextLine();
-            if (name.isBlank()) {
+            if (store.getMovie(name) == null) {
                 System.out.println("\n\nInvalid input. Please try again.");
                 continue;
             }
