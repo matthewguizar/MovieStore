@@ -9,15 +9,6 @@ public class Movie {
     private boolean isAvailable;
 
     public Movie (String name, String format, double rating){
-        this.name = name;
-        this.format = format;
-        this.rating = rating;
-        this.sellingPrice = format.equals("Blue-Ray") ? 4.25 : 2.25;
-        this.rentalPrice = format.equals("DVD") ? 0.99 : 1.99;
-        this.isAvailable = true;
-
-    }
-    public Movie (Movie source){
         if(name == null || name.isBlank()){
             throw new IllegalArgumentException("Name Must contain value");
         }
@@ -27,6 +18,16 @@ public class Movie {
         if (rating < 0 || rating > 10 ){
             throw new IllegalArgumentException("invalid rating");
         }
+        this.name = name;
+        this.format = format;
+        this.rating = rating;
+        this.sellingPrice = format.equals("Blue-Ray") ? 4.25 : 2.25;
+        this.rentalPrice = format.equals("DVD") ? 0.99 : 1.99;
+        this.isAvailable = true;
+
+    }
+    public Movie (Movie source){
+       
         this.name = source.name;
         this.format = source.format;
         this.rating = source.rating;
@@ -53,6 +54,7 @@ public class Movie {
     public boolean isAvailable() {
         return isAvailable;
     }
+    
     public void setName(String name) {
         if (name == null || name.isBlank()){
             throw new IllegalArgumentException("name invalid");
@@ -82,7 +84,7 @@ public class Movie {
     public void setAvailable(boolean isAvailable) {
         this.isAvailable = isAvailable;
     }
-
+    
     public String toString(){
         return "\t Name: " + this.name + "\n" + 
         "\t Format: " + this.format + "\n" + 
